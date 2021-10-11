@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Hero : MonoBehaviour {
     static public Hero S; // Singleton
@@ -27,6 +28,8 @@ public class Hero : MonoBehaviour {
     // Create a WeaponFireDelegate field named fireDelegate.
     public WeaponFireDelegate fireDelegate;
 
+    public InputAction fireAction;
+
 	void Start()
     {
         if (S == null)
@@ -43,13 +46,29 @@ public class Hero : MonoBehaviour {
         ClearWeapons();
         weapons[0].SetType(WeaponType.blaster);
     }
+
+    void OnEnable()
+    {
+        fireAction.Enable();
+    }
+
+    void OnDisable()
+    {
+        fireAction.Disable();
+    }
+
+
+    void Awake()
+    {
+        fireAction.performed += ctx => fireDelegate();
+    }
 	
 	// Update is called once per frame
 	void Update()
     {
         // Pull in information from the Input class
-        float xAxis = Input.GetAxis("Horizontal");
-        float yAxis = Input.GetAxis("Vertical");
+        // float xAxis = Input.GetAxis("Horizontal");
+        // float yAxis = Input.GetAxis("Vertical");
 
         // Change transform.position based on the axes
         Vector3 pos = transform.position;
@@ -63,10 +82,10 @@ public class Hero : MonoBehaviour {
         // Use the fireDelegate to fire Weapons
         // First, make sure the button is pressed: Axis("Jump")
         // Then ensure that fireDelegate isn't null to avoid an error
-        if (Input.GetAxis("Jump") == 1 && fireDelegate != null)
-        {
-            fireDelegate();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space) && fireDelegate != null)
+        //{
+        //    fireDelegate();
+        //}
     }
 
     private void OnTriggerEnter(Collider other)
