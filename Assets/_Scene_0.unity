@@ -375,7 +375,7 @@ MonoBehaviour:
   - type: 3
     letter: P
     color: {r: 0, g: 1, b: 0.94946814, a: 1}
-    projectilePrefab: {fileID: 7754072135454137891, guid: ed5c24b8a8d0d9c44aa3475bb2622be9,
+    projectilePrefab: {fileID: 3498346562333308808, guid: d860618e540125544aba5a14993192c6,
       type: 3}
     projectileColor: {r: 0, g: 1, b: 0.9490197, a: 1}
     damageOnHit: 3
