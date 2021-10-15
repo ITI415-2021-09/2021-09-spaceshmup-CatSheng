@@ -29,8 +29,10 @@ public class Hero : MonoBehaviour {
     public WeaponFireDelegate fireDelegate;
 
     public InputAction fireAction;
+    private float movementX;
+    private float movementY;
 
-	void Start()
+    void Start()
     {
         if (S == null)
         {
@@ -47,37 +49,21 @@ public class Hero : MonoBehaviour {
         weapons[0].SetType(WeaponType.blaster);
     }
 
-    void OnEnable()
-    {
-        fireAction.Enable();
-    }
-
-    void OnDisable()
-    {
-        fireAction.Disable();
-    }
-
-
-    void Awake()
-    {
-        fireAction.performed += ctx => fireDelegate();
-    }
-	
 	// Update is called once per frame
 	void Update()
     {
-        // Pull in information from the Input class
-        // float xAxis = Input.GetAxis("Horizontal");
-        // float yAxis = Input.GetAxis("Vertical");
+        // Pull in information from the Input class [use onMove from roll a Ball]
+        //float xAxis = Input.GetAxis("Horizontal");
+        //float yAxis = Input.GetAxis("Vertical");
 
-        // Change transform.position based on the axes
+        //Change transform.position based on the axes
         Vector3 pos = transform.position;
-        pos.x += xAxis * speed * Time.deltaTime;
-        pos.y += yAxis * speed * Time.deltaTime;
+        pos.x += movementX * speed * Time.deltaTime;
+        pos.y += movementY * speed * Time.deltaTime;
         transform.position = pos;
 
         // Rotate the ship to make it feel more dynamic
-        transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0);
+        transform.rotation = Quaternion.Euler(movementY * pitchMult, movementX * rollMult, 0);
 
         // Use the fireDelegate to fire Weapons
         // First, make sure the button is pressed: Axis("Jump")
@@ -87,6 +73,21 @@ public class Hero : MonoBehaviour {
         //    fireDelegate();
         //}
     }
+
+    void OnMove(InputValue movementValue)
+    {
+        Vector2 movementVector = movementValue.Get<Vector2>();
+
+        movementX = movementVector.x;
+        movementY = movementVector.y;
+    } 
+
+    void OnFire()
+    {
+
+        fireDelegate();
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {

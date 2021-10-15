@@ -57,8 +57,9 @@ public class Enemy_4 : Enemy {
         // Assign a new on-screen location to p1
         float widMinRad = bndCheck.camWidth - bndCheck.radius;
         float hgtMinRad = bndCheck.camHeight - bndCheck.radius;
-        p1.x = Random.Range(-widMinRad, widMinRad);
-        p1.y = Random.Range(-hgtMinRad, hgtMinRad);
+        //p1.x = Random.Range(-widMinRad, widMinRad);
+       // p1.y = Random.Range(-hgtMinRad, hgtMinRad);
+        p1 = Hero.S.gameObject.GetComponent<Transform>().position;
 
         // Reset the time
         timeStart = Time.time;
