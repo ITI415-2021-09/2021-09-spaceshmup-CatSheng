@@ -359,10 +359,6 @@ MonoBehaviour:
   - {fileID: 1801717105832950, guid: cb4206b8e00300649994ecf8ffe838d5, type: 3}
   - {fileID: 1801717105832950, guid: cb4206b8e00300649994ecf8ffe838d5, type: 3}
   - {fileID: 1158547974957732, guid: a0a74b7d2e3ac2449b0e77185af83fed, type: 3}
-  - {fileID: 1158547974957732, guid: a0a74b7d2e3ac2449b0e77185af83fed, type: 3}
-  - {fileID: 1700942416061258, guid: 3f6055558a488314cb38691d88c41fdf, type: 3}
-  - {fileID: 1700942416061258, guid: 3f6055558a488314cb38691d88c41fdf, type: 3}
-  - {fileID: 1539775467464788, guid: 06677ec088bca734db80dc6ecea1d7af, type: 3}
   enemySpawnPerSecond: 0.5
   enemyDefaultPadding: 1.5
   weaponDefinitions:
@@ -404,27 +400,9 @@ MonoBehaviour:
     continuousDamage: 1
     delayBetweenShots: 0
     velocity: 30
-  - type: 4
-    letter: M
-    color: {r: 0, g: 1, b: 1, a: 1}
-    projectilePrefab: {fileID: 0}
-    projectileColor: {r: 0, g: 0.9960785, b: 0.9960785, a: 1}
-    damageOnHit: 5
-    continuousDamage: 0
-    delayBetweenShots: 1
-    velocity: 70
-  - type: 3
-    letter: P
-    color: {r: 0.4766183, g: 0, b: 1, a: 1}
-    projectilePrefab: {fileID: 0}
-    projectileColor: {r: 0.4784314, g: 0, b: 1, a: 1}
-    damageOnHit: 1
-    continuousDamage: 3
-    delayBetweenShots: 0
-    velocity: 20
   prefabPowerUp: {fileID: 1062273549804748, guid: 9649a9a79085a854d9990613a980f435,
     type: 3}
-  powerUpFrequency: 01000000010000000200000006000000
+  powerUpFrequency: 01000000020000000300000006000000040000000500000005000000
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0
