@@ -38,6 +38,7 @@ public class Enemy_3 : Enemy { // Enemy_3 extends Enemy
 
         // Set the birthTime to the current time
         birthTime = Time.time;
+
     }
 
     public override void Move()

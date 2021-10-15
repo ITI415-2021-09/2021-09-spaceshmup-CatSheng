@@ -134,10 +134,11 @@ public class Weapon : MonoBehaviour {
                 break;
 
             case WeaponType.phaser:
-                p = MakeProjectile();
-                p.rigid.velocity = vel;
-                p = MakeProjectile();
-                p.rigid.velocity = vel;
+                p = MakeProjectile(); // Make right Projectile
+                p.transform.rotation = Quaternion.AngleAxis(10, Vector3.back);
+                p.rigid.velocity = p.transform.rotation * vel;
+                p = MakeProjectile(); // Make left Projectile
+                p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
                 break;
 
             case WeaponType.missile:

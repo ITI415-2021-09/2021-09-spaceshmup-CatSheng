@@ -375,7 +375,7 @@ MonoBehaviour:
   - type: 3
     letter: P
     color: {r: 0, g: 1, b: 0.94946814, a: 1}
-    projectilePrefab: {fileID: 1899541879965282, guid: 59a4640edad59f94a87c1d235355cb6a,
+    projectilePrefab: {fileID: 7754072135454137891, guid: ed5c24b8a8d0d9c44aa3475bb2622be9,
       type: 3}
     projectileColor: {r: 0, g: 1, b: 0.9490197, a: 1}
     damageOnHit: 3
@@ -385,7 +385,7 @@ MonoBehaviour:
   - type: 4
     letter: M
     color: {r: 0, g: 0.3405347, b: 1, a: 1}
-    projectilePrefab: {fileID: 1899541879965282, guid: 59a4640edad59f94a87c1d235355cb6a,
+    projectilePrefab: {fileID: 5794973061265662955, guid: 26750e856e0994f4fbbbc8d0634d5c80,
       type: 3}
     projectileColor: {r: 0, g: 0.34117648, b: 1, a: 1}
     damageOnHit: 6
@@ -395,7 +395,7 @@ MonoBehaviour:
   - type: 5
     letter: L
     color: {r: 1, g: 0, b: 0.94458485, a: 1}
-    projectilePrefab: {fileID: 1899541879965282, guid: 59a4640edad59f94a87c1d235355cb6a,
+    projectilePrefab: {fileID: 3498346562333308808, guid: d860618e540125544aba5a14993192c6,
       type: 3}
     projectileColor: {r: 1, g: 0, b: 0.9450981, a: 1}
     damageOnHit: 0.5
