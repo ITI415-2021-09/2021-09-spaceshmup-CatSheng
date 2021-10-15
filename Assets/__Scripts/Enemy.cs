@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour {
     public bool notifiedOfDestruction = false; // Will be used later
 
     protected BoundsCheck bndCheck;
+    private GameObject lastTriggerGo = null;
 
     private void Awake()
     {
@@ -27,7 +28,7 @@ public class Enemy : MonoBehaviour {
         // Get materials and colors for this GameObject and its children
         materials = Utils.GetAllMaterials(gameObject);
         originalColors = new Color[materials.Length];
-        for (int i=0; i<materials.Length; i++)
+        for (int i = 0; i < materials.Length; i++)
         {
             originalColors[i] = materials[i].color;
         }
@@ -50,7 +51,7 @@ public class Enemy : MonoBehaviour {
     {
         Move();
 
-        if(showingDamage && Time.time > damageDoneTime)
+        if (showingDamage && Time.time > damageDoneTime)
         {
             UnShowDamage();
         }
@@ -67,9 +68,31 @@ public class Enemy : MonoBehaviour {
         Vector3 tempPos = pos;
         tempPos.y -= speed * Time.deltaTime;
         pos = tempPos;
+
     }
 
-    private void OnCollisionEnter(Collision coll)
+    // trying to set it that if an enemy hit another enemy, they will both die
+    private void OnTriggerEnter(Collider other) 
+    {
+        Transform rootT = other.gameObject.transform.root;
+        GameObject go = rootT.gameObject;
+        print("ya hit: " + go.name);
+
+        // Make sure it's not the same triggering go as last time
+        if (go == lastTriggerGo)
+        {
+            return;
+        }
+        lastTriggerGo = go;
+
+        if (go.tag == "Enemy")
+        {
+            print("please work");
+            Destroy(go);
+        }
+    }
+
+private void OnCollisionEnter(Collision coll)
     {
         GameObject otherGO = coll.gameObject;
         switch (otherGO.tag)

@@ -28,7 +28,6 @@ public class Hero : MonoBehaviour {
     // Create a WeaponFireDelegate field named fireDelegate.
     public WeaponFireDelegate fireDelegate;
 
-    public InputAction fireAction;
     private float movementX;
     private float movementY;
 
